@@ -10,7 +10,7 @@ import Interfaces.ICustomerDao;
 public class DerbyDAOFactory extends DaoFactory {
 
 	public DerbyDAOFactory() {
-		super("org.apache.derby.jdbc.EmbeddedDriver", "jdbc:derby:integratorDB;create=true");
+		super("org.apache.derby.jdbc.EmbeddedDriver", "jdbc:derby:practice1DB;create=true");
 	}
 
 	@Override
@@ -23,7 +23,7 @@ public class DerbyDAOFactory extends DaoFactory {
 		boolean exists = false;
 		var connection = getConnection();
 		DatabaseMetaData dbm = connection.getMetaData();
-        ResultSet rs = dbm.getTables(null, "APP", "CUSTOMER", null);
+        ResultSet rs = dbm.getTables(null, "ROOT", "CUSTOMER", null);
         if (rs.next())
             exists = true;
         return exists;

@@ -10,7 +10,7 @@ import Interfaces.ICustomerDao;
 public class MySqlDAOFactory extends DaoFactory {
 
 	public MySqlDAOFactory() {
-		super("com.mysql.cj.jdbc.Driver", "jdbc:mysql://localhost:3306/integratorDB");
+		super("com.mysql.cj.jdbc.Driver", "jdbc:mysql://localhost:3306/practice1DB");
 	}
 	
 	@Override
@@ -24,7 +24,7 @@ public class MySqlDAOFactory extends DaoFactory {
         String select = """
         		SELECT * 
 				FROM information_schema.tables
-				WHERE table_schema = 'integratorDB' 
+				WHERE table_schema = 'practice1DB' 
 				    AND table_name = 'customer'
 				LIMIT 1;
         		""";

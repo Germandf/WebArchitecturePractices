@@ -16,6 +16,7 @@ public class Main {
         customerDao.save(new Customer(1, "German De Francesco", "german@mailing.com"));
 		Optional<Customer> maybeCustomer = customerDao.get(1);
 		if (maybeCustomer.isPresent()) {
+			System.out.println("Working!");
 			Customer customer = maybeCustomer.get();
 			customer.setEmail("german2@mailing.com");
 			customerDao.update(customer);
