@@ -1,5 +1,7 @@
 package Factories;
 
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
 
 import Daos.MySqlCustomerDao;
@@ -18,8 +20,24 @@ public class MySqlDAOFactory extends DaoFactory {
 
 	@Override
 	public boolean hasCreatedTables() throws SQLException {
-		// TODO Auto-generated method stub
-		return false;
+		boolean exists = false;
+        String select = """
+        		SELECT * 
+				FROM information_schema.tables
+				WHERE table_schema = 'integratorDB' 
+				    AND table_name = 'customer'
+				LIMIT 1;
+        		""";
+        var connection = getConnection();
+        try (PreparedStatement ps = connection.prepareStatement(select)) {
+            ResultSet rs = ps.executeQuery();
+            if (rs.next())
+            	exists = true;
+            connection.commit();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return exists;
 	}
 
 }

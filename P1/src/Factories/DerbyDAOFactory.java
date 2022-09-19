@@ -1,5 +1,7 @@
 package Factories;
 
+import java.sql.DatabaseMetaData;
+import java.sql.ResultSet;
 import java.sql.SQLException;
 
 import Daos.DerbyCustomerDao;
@@ -18,8 +20,13 @@ public class DerbyDAOFactory extends DaoFactory {
 	
 	@Override
 	public boolean hasCreatedTables() throws SQLException {
-		// TODO Auto-generated method stub
-		return false;
+		boolean exists = false;
+		var connection = getConnection();
+		DatabaseMetaData dbm = connection.getMetaData();
+        ResultSet rs = dbm.getTables(null, "APP", "CUSTOMER", null);
+        if (rs.next())
+            exists = true;
+        return exists;
 	}
 
 }
