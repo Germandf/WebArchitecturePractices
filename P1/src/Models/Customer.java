@@ -1,39 +1,43 @@
 package Models;
 
 public class Customer {
+    private int id;
+    private String name;
+    private String email;
 
-	private int id;
-	private String name;
-    private int age;
-    
-    public Customer (int id, String name, int age) {
-    	this.id = id;
-    	this.name = name;
-    	this.age = age;
+    public Customer(int id, String name, String email) {
+        this.id = id;
+        this.name = name;
+        this.email = email;
     }
 
-	public int getId() {
-		return id;
-	}
+    public int getId() {
+        return id;
+    }
 
-	public void setId(int id) {
-		this.id = id;
-	}
+    public void setId(int id) {
+        this.id = id;
+    }
 
-	public String getName() {
-		return name;
-	}
+    public String getName() {
+        return name;
+    }
 
-	public void setName(String name) {
-		this.name = name;
-	}
+    public void setName(String name) {
+        this.name = name;
+    }
 
-	public int getAge() {
-		return age;
-	}
+    public String getEmail() {
+        return email;
+    }
 
-	public void setAge(int age) {
-		this.age = age;
-	}
-	
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
+    @Override
+    public String toString() {
+        return "Customer [id=" + id + ", name=" + name + ", email=" + email + "]";
+    }
+
 }

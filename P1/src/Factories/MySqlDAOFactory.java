@@ -10,7 +10,7 @@ public class MySqlDAOFactory extends DaoFactory {
 
 	@Override
 	public ICustomerDao getCustomerDao() {
-		return new MySqlCustomerDao();
+		return new MySqlCustomerDao(getConnection());
 	}
 
 	@Override

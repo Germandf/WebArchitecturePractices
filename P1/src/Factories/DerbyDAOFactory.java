@@ -10,7 +10,7 @@ public class DerbyDAOFactory extends DaoFactory {
 
 	@Override
 	public ICustomerDao getCustomerDao() {
-		return new DerbyCustomerDao();
+		return new DerbyCustomerDao(getConnection());
 	}
 
 	@Override

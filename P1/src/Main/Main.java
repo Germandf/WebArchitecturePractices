@@ -13,11 +13,11 @@ public class Main {
         DaoFactory.initializeDb(daoFactory);
         
         ICustomerDao customerDao = daoFactory.getCustomerDao();
-        customerDao.save(new Customer(1, "German", 21));
+        customerDao.save(new Customer(1, "German De Francesco", "german@mailing.com"));
 		Optional<Customer> maybeCustomer = customerDao.get(1);
 		if (maybeCustomer.isPresent()) {
 			Customer customer = maybeCustomer.get();
-			customer.setAge(22);
+			customer.setEmail("german2@mailing.com");
 			customerDao.update(customer);
 			customerDao.delete(customer);
 		}
