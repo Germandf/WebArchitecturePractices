@@ -1,8 +1,12 @@
+package Daos;
 import java.util.List;
 import java.util.Optional;
 
-public class DerbyCustomerDAO extends CustomerDAO {
+import Interfaces.CustomerDAO;
+import Models.Customer;
 
+public class MySqlCustomerDAO extends CustomerDAO {
+	
 	@Override
 	public Optional<Customer> get(int id) {
 		// TODO Auto-generated method stub
@@ -32,5 +36,7 @@ public class DerbyCustomerDAO extends CustomerDAO {
 		// TODO Auto-generated method stub
 		
 	}
+
+	
 
 }

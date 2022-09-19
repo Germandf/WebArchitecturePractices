@@ -1,3 +1,8 @@
+package Factories;
+
+import Daos.DerbyCustomerDAO;
+import Interfaces.CustomerDAO;
+import Interfaces.DAOFactory;
 
 public class DerbyDAOFactory extends DAOFactory {
 
