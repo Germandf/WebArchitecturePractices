@@ -1,15 +1,15 @@
 package Main;
 import java.util.Optional;
 
-import Interfaces.CustomerDAO;
-import Interfaces.DAOFactory;
+import Factories.DaoFactory;
+import Interfaces.ICustomerDao;
 import Models.Customer;
 
 public class Main {
 
 	public static void main(String[] args) {
-		DAOFactory mysqlFactory = DAOFactory.getDAOFactory(DAOFactory.MYSQL_JDBC);
-		CustomerDAO customerDAO = mysqlFactory.getCustomerDAO();
+		DaoFactory mysqlFactory = DaoFactory.getDAOFactory(DaoFactory.MYSQL_JDBC);
+		ICustomerDao customerDAO = mysqlFactory.getCustomerDAO();
 		customerDAO.save(new Customer(1, "German", 21));
 		Optional<Customer> maybeCustomer = customerDAO.get(1);
 		if (maybeCustomer.isPresent()) {

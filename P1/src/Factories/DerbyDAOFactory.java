@@ -1,14 +1,13 @@
 package Factories;
 
-import Daos.DerbyCustomerDAO;
-import Interfaces.CustomerDAO;
-import Interfaces.DAOFactory;
+import Daos.DerbyCustomerDao;
+import Interfaces.ICustomerDao;
 
-public class DerbyDAOFactory extends DAOFactory {
+public class DerbyDAOFactory extends DaoFactory {
 
 	@Override
-	public CustomerDAO getCustomerDAO() {
-		return new DerbyCustomerDAO();
+	public ICustomerDao getCustomerDAO() {
+		return new DerbyCustomerDao();
 	}
 
 }

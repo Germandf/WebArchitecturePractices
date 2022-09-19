@@ -1,14 +1,13 @@
 package Factories;
 
-import Daos.MySqlCustomerDAO;
-import Interfaces.CustomerDAO;
-import Interfaces.DAOFactory;
+import Daos.MySqlCustomerDao;
+import Interfaces.ICustomerDao;
 
-public class MySqlDAOFactory extends DAOFactory {
+public class MySqlDAOFactory extends DaoFactory {
 
 	@Override
-	public CustomerDAO getCustomerDAO() {
-		return new MySqlCustomerDAO();
+	public ICustomerDao getCustomerDAO() {
+		return new MySqlCustomerDao();
 	}
 
 }
