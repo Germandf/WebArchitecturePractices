@@ -1,5 +1,8 @@
 package Factories;
 
+import java.sql.Connection;
+import java.sql.SQLException;
+
 import Interfaces.ICustomerDao;
 
 public abstract class DaoFactory {
@@ -8,7 +11,7 @@ public abstract class DaoFactory {
 	public static final int DERBY_JDBC = 2;
 	public static final int JPA_HIBERNATE = 3;
 	
-	public abstract ICustomerDao getCustomerDAO();
+	public abstract ICustomerDao getCustomerDao();
 	
 	public static DaoFactory getDAOFactory(int whichFactory) {
 		switch (whichFactory) {
@@ -17,4 +20,20 @@ public abstract class DaoFactory {
 			default: return null;
 		}
 	}
+	
+	public static void initializeDb(DaoFactory daoFactory) {
+        try {
+        	if (daoFactory.hasCreatedTables())
+        		return;
+        		
+        	daoFactory.getCustomerDao().createTable();
+            System.out.println("Tables created with success!");
+        } catch (Exception e) {
+            System.out.println(e);
+        }
+    }
+    
+    public abstract Connection getConnection();
+    
+    public abstract boolean hasCreatedTables() throws SQLException;
 }

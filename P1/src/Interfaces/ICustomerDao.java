@@ -2,6 +2,6 @@ package Interfaces;
 
 import Models.Customer;
 
-public abstract class ICustomerDao implements IDao<Customer> {
+public interface ICustomerDao extends IDao<Customer> {
 
 }

@@ -13,4 +13,6 @@ public interface IDao<T> {
     void update(T t);
     
     void delete(T t);
+    
+    void createTable();
 }

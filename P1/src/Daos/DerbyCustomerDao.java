@@ -5,7 +5,7 @@ import java.util.Optional;
 import Interfaces.ICustomerDao;
 import Models.Customer;
 
-public class DerbyCustomerDao extends ICustomerDao {
+public class DerbyCustomerDao implements ICustomerDao {
 
 	@Override
 	public Optional<Customer> get(int id) {
@@ -33,6 +33,12 @@ public class DerbyCustomerDao extends ICustomerDao {
 
 	@Override
 	public void delete(Customer t) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void createTable() {
 		// TODO Auto-generated method stub
 		
 	}
