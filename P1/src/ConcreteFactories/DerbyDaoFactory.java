@@ -1,13 +1,14 @@
-package Factories;
+package ConcreteFactories;
 
 import java.sql.DatabaseMetaData;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
+import AbstractFactories.JdbcDaoFactory;
 import Daos.DerbyCustomerDao;
 import Interfaces.ICustomerDao;
 
-public class DerbyDaoFactory extends DaoFactory {
+public class DerbyDaoFactory extends JdbcDaoFactory {
 
 	public DerbyDaoFactory() {
 		super("org.apache.derby.jdbc.EmbeddedDriver", "jdbc:derby:practice1DB;create=true");

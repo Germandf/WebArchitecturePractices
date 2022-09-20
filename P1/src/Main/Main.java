@@ -1,7 +1,7 @@
 package Main;
 import java.util.Optional;
 
-import Factories.DaoFactory;
+import AbstractFactories.DaoFactory;
 import Interfaces.ICustomerDao;
 import Models.Customer;
 
@@ -10,7 +10,6 @@ public class Main {
 	public static void main(String[] args) {
 		
 		DaoFactory daoFactory = DaoFactory.getDAOFactory(DaoFactory.MYSQL_JDBC);
-        DaoFactory.initializeDb(daoFactory);
         
         ICustomerDao customerDao = daoFactory.getCustomerDao();
         customerDao.save(new Customer(1, "German De Francesco", "german@mailing.com"));

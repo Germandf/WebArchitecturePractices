@@ -1,13 +1,14 @@
-package Factories;
+package ConcreteFactories;
 
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
+import AbstractFactories.JdbcDaoFactory;
 import Daos.MySqlCustomerDao;
 import Interfaces.ICustomerDao;
 
-public class MySqlDaoFactory extends DaoFactory {
+public class MySqlDaoFactory extends JdbcDaoFactory {
 
 	public MySqlDaoFactory() {
 		super("com.mysql.cj.jdbc.Driver", "jdbc:mysql://localhost:3306/practice1DB");
