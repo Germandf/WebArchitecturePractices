@@ -70,7 +70,7 @@ public class JpaCustomerDao implements ICustomerDao {
 		EntityManagerFactory emf = jpaDaoFactory.getEntityManagerFactory();
 		EntityManager em = emf.createEntityManager();
 		em.getTransaction().begin();
-		em.remove(t);
+		em.remove(em.contains(t) ? t : em.merge(t));
 		em.getTransaction().commit();
 		em.close();
 		emf.close();
