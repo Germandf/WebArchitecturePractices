@@ -1,4 +1,5 @@
 package Daos;
+
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -6,22 +7,21 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
-
 import Interfaces.ICustomerDao;
 import Models.Customer;
 
-public class MySqlCustomerDao implements ICustomerDao {
+public class JdbcDerbyCustomerDao implements ICustomerDao {
 
-    private Connection connection;
+	private Connection connection;
 
-    public MySqlCustomerDao(Connection connection) {
+    public JdbcDerbyCustomerDao(Connection connection) {
         this.connection = connection;
     }
 
     @Override
     public Optional<Customer> get(int id) {
     	Customer result = null;
-        String select = "SELECT * FROM " + entityName + " WHERE id = ? ";
+        String select = "SELECT * FROM " + entityName + " WHERE id = ?";
         try (PreparedStatement ps = connection.prepareStatement(select)) {
             ps.setInt(1, id);
             ResultSet rs = ps.executeQuery();
@@ -99,8 +99,8 @@ public class MySqlCustomerDao implements ICustomerDao {
 
     @Override
     public void createTable() {
-        String table = """
-                CREATE TABLE IF NOT EXISTS customer(
+    	String table = """
+                CREATE TABLE customer(
                     id int,
                     name varchar(500),
                     email varchar(150),
