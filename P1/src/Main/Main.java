@@ -9,7 +9,7 @@ public class Main {
 
 	public static void main(String[] args) {
 		
-		DaoFactory daoFactory = DaoFactory.getDAOFactory(DaoFactory.MYSQL_JDBC);
+		DaoFactory daoFactory = DaoFactory.getDAOFactory(DaoFactory.MYSQL_JPA_HIBERNATE);
         
         ICustomerDao customerDao = daoFactory.getCustomerDao();
         customerDao.save(new Customer(1, "German De Francesco", "german@mailing.com"));
