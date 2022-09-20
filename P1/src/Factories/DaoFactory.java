@@ -11,7 +11,8 @@ public abstract class DaoFactory {
 	
 	public static final int MYSQL_JDBC = 1;
 	public static final int DERBY_JDBC = 2;
-	public static final int JPA_HIBERNATE = 3;
+	public static final int MYSQL_JPA_HIBERNATE = 3;
+	public static final int DERBY_JPA_HIBERNATE = 4;
 	
 	private final String driver;
 	private final String uri;
@@ -25,8 +26,10 @@ public abstract class DaoFactory {
 	
 	public static DaoFactory getDAOFactory(int whichFactory) {
 		switch (whichFactory) {
-			case MYSQL_JDBC : return new MySqlDAOFactory();
-			case DERBY_JDBC: return new DerbyDAOFactory();
+			case MYSQL_JDBC: return new MySqlDaoFactory();
+			case DERBY_JDBC: return new DerbyDaoFactory();
+			case MYSQL_JPA_HIBERNATE: return new JpaMySqlDaoFactory();
+			case DERBY_JPA_HIBERNATE: return new JpaDerbyDaoFactory();
 			default: return null;
 		}
 	}

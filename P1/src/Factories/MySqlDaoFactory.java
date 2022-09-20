@@ -7,9 +7,9 @@ import java.sql.SQLException;
 import Daos.MySqlCustomerDao;
 import Interfaces.ICustomerDao;
 
-public class MySqlDAOFactory extends DaoFactory {
+public class MySqlDaoFactory extends DaoFactory {
 
-	public MySqlDAOFactory() {
+	public MySqlDaoFactory() {
 		super("com.mysql.cj.jdbc.Driver", "jdbc:mysql://localhost:3306/practice1DB");
 	}
 	

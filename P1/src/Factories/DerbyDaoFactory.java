@@ -7,9 +7,9 @@ import java.sql.SQLException;
 import Daos.DerbyCustomerDao;
 import Interfaces.ICustomerDao;
 
-public class DerbyDAOFactory extends DaoFactory {
+public class DerbyDaoFactory extends DaoFactory {
 
-	public DerbyDAOFactory() {
+	public DerbyDaoFactory() {
 		super("org.apache.derby.jdbc.EmbeddedDriver", "jdbc:derby:practice1DB;create=true");
 	}
 
