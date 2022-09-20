@@ -5,7 +5,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 
 import AbstractFactories.JdbcDaoFactory;
-import Daos.DerbyCustomerDao;
+import Daos.JdbcDerbyCustomerDao;
 import Interfaces.ICustomerDao;
 
 public class DerbyDaoFactory extends JdbcDaoFactory {
@@ -16,7 +16,7 @@ public class DerbyDaoFactory extends JdbcDaoFactory {
 
 	@Override
 	public ICustomerDao getCustomerDao() {
-		return new DerbyCustomerDao(getConnection());
+		return new JdbcDerbyCustomerDao(getConnection());
 	}
 	
 	@Override

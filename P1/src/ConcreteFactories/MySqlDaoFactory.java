@@ -5,7 +5,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 
 import AbstractFactories.JdbcDaoFactory;
-import Daos.MySqlCustomerDao;
+import Daos.JdbcMySqlCustomerDao;
 import Interfaces.ICustomerDao;
 
 public class MySqlDaoFactory extends JdbcDaoFactory {
@@ -16,7 +16,7 @@ public class MySqlDaoFactory extends JdbcDaoFactory {
 	
 	@Override
 	public ICustomerDao getCustomerDao() {
-		return new MySqlCustomerDao(getConnection());
+		return new JdbcMySqlCustomerDao(getConnection());
 	}
 
 	@Override
